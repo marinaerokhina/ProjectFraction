@@ -81,8 +81,24 @@ class Fraction:
         new_den = self._den * other.num
         return Fraction(new_num, new_den)
 
+    def __pow__(self, power:int) -> Fraction:
+        if not isinstance(power, int):
+            raise TypeError("Power must be an integer")
+        new_num = self.num ** power
+        new_den = self._den ** power
+        return Fraction(new_num, new_den)
+
     def __float__(self) -> float:
         return float(self.num / self._den)
+
+    def __eq__(self, other:Fraction) -> bool:
+        return self.num == other.num and self._den == other._den
+
+    def __gt__(self, other) -> bool:
+        return self.num * other._den > other.num * self._den
+
+    def __lt__(self, other) -> bool:
+        return self.num * other._den < other.num * self._den
 
     @staticmethod
     def frac_input() -> Fraction:
