@@ -9,10 +9,12 @@ try:
     print(frac2)
     print (f"sum = {frac1 + frac2}, sub = {frac1 - frac2}, mul = {frac1 * frac2}, "
            f"div = {frac1 / frac2}")
-    print(frac2.__float__())
+    print(float(frac2))
     frac7 = float(input())
     frac8 = DecimalFraction.to_fraction(frac7)
     print(frac8)
+    Frac1 = MixedFraction(2, 3, 4)
+    print(Frac1)
 except Exception as e:
     print(f"There's an error occured: {e}. Please, be careful")
 
