@@ -51,28 +51,28 @@ class Fraction:
         self.num //= val
         self._den //= val
 
-    def __add__(self, other:Fraction) -> Fraction:
+    def __add__(self, other: Fraction) -> Fraction:
         if not isinstance(other, Fraction):
             raise TypeError("Argument must be a fraction")
         new_den = self._den * other._den
         new_num = self.num * other._den + other.num * self._den
         return Fraction(new_num, new_den)
 
-    def __sub__(self, other:Fraction) -> Fraction:
+    def __sub__(self, other: Fraction) -> Fraction:
         if not isinstance(other, Fraction):
             raise TypeError("Argument must be a fraction")
         new_den = self._den * other._den
         new_num = self.num * other._den - other.num * self._den
         return Fraction(new_num, new_den)
 
-    def __mul__(self, other:Fraction) -> Fraction:
+    def __mul__(self, other: Fraction) -> Fraction:
         if not isinstance(other, Fraction):
             raise TypeError("Argument must be a fraction")
         new_num = self.num * other.num
         new_den = self._den * other._den
         return Fraction(new_num, new_den)
 
-    def __truediv__(self, other:Fraction) -> Fraction:
+    def __truediv__(self, other: Fraction) -> Fraction:
         if not isinstance(other, Fraction):
             raise TypeError("Argument must be a fraction")
         if other.num == 0:
@@ -81,7 +81,7 @@ class Fraction:
         new_den = self._den * other.num
         return Fraction(new_num, new_den)
 
-    def __pow__(self, power:int) -> Fraction:
+    def __pow__(self, power: int) -> Fraction:
         if not isinstance(power, int):
             raise TypeError("Power must be an integer")
         new_num = self.num ** power
@@ -91,7 +91,7 @@ class Fraction:
     def __float__(self) -> float:
         return float(self.num / self._den)
 
-    def __eq__(self, other:Fraction) -> bool:
+    def __eq__(self, other: Fraction) -> bool:
         return self.num == other.num and self._den == other._den
 
     def __gt__(self, other) -> bool:
