@@ -19,7 +19,7 @@ class MixedFraction(Fraction):
             return f"{self.whole_part} {self.frac_part.num}/{self.frac_part._den}"
 
     @staticmethod
-    def to_fraction(frac: MixedFraction) -> Fraction:
+    def to_fraction(frac) -> Fraction:
         if not isinstance(frac, MixedFraction):
             raise TypeError("Argument must be a MixedFraction")
         if frac.whole_part == 0:
@@ -29,7 +29,7 @@ class MixedFraction(Fraction):
                             frac.frac_part._den)
 
     @staticmethod
-    def to_mixed_fraction(frac: Fraction) -> MixedFraction:
+    def to_mixed_fraction(frac:Fraction) -> MixedFraction:
         if not isinstance(frac, Fraction):
             raise TypeError("Argument must be a Fraction")
         if frac.num < frac._den:
@@ -47,16 +47,28 @@ class MixedFraction(Fraction):
         return MixedFraction(wp, num, den)
 
     def __eq__(self, other) -> bool:
-        frac = self.to_fraction()
-        return frac.__eq__(other.to_fraction())
+        frac, frac2 = Fraction(), Fraction()
+        if isinstance(self,  MixedFraction):
+            frac = MixedFraction.to_fraction(self)
+        if isinstance(other, MixedFraction):
+            frac2 = MixedFraction.to_fraction(other)
+        return frac.__eq__(frac2)
 
     def __gt__(self, other) -> bool:
-        frac = self.to_fraction()
-        return frac.__gt__(other.to_fraction())
+        frac, frac2 = Fraction(), Fraction()
+        if isinstance(self, MixedFraction):
+            frac = MixedFraction.to_fraction(self)
+        if isinstance(other, MixedFraction):
+            frac2 = MixedFraction.to_fraction(other)
+        return frac.__gt__(frac2)
 
     def __lt__(self, other) -> bool:
-        frac = self.to_fraction()
-        return frac.__lt__(other.to_fraction())
+        frac, frac2 = Fraction(), Fraction()
+        if isinstance(self,  MixedFraction):
+            frac = MixedFraction.to_fraction(self)
+        if isinstance(other, MixedFraction):
+            frac2 = MixedFraction.to_fraction(other)
+        return frac.__lt__(frac2)
 
     def __add__(self, other) -> MixedFraction:
         if not isinstance(other, (MixedFraction, Fraction)):
