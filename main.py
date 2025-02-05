@@ -2,34 +2,52 @@ from fraction import Fraction
 from decimal_fraction import DecimalFraction
 from mixed_fraction import MixedFraction
 from tree import Node, Tree
-
+"""
+    Test programm for the project 
+"""
 try:
     Frac1 = MixedFraction(2, 3, 4)
     Frac2 = MixedFraction(3, 5, 8)
     print(Frac1, Frac2)
+
+
     Frac3 = Fraction(14, 8)
     Frac4 = Fraction(34, 7)
     print(Frac3, Frac4)
+
+
     tree = Tree()
     tree.insert(Frac1)
     tree.print_tree()
     print("\n")
+
+
     tree.insert(Frac2)
     tree.print_tree()
     print("\n")
+
+
     tree.insert(Frac3)
     tree.print_tree()
     print("\n")
+
+
     tree.insert(Frac4)
     tree.print_tree()
     print("\n")
+
+
     tree.balance()
     tree.print_tree()
     print("\n")
+
+
     tree.insert(Fraction(9, 4))
     tree.balance()
     tree.print_tree()
     print("\n")
+
+    
 except Exception as e:
     print(f"There's an error occured: {e}. Please, be careful")
 

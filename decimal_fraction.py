@@ -3,6 +3,8 @@ from fraction import Fraction
 
 
 class DecimalFraction(Fraction):
+    
+    
     value: float
 
     def __init__(self, val):
@@ -15,6 +17,11 @@ class DecimalFraction(Fraction):
 
     @classmethod
     def to_fraction(cls, val) -> Fraction:
+        """
+        DecimalFraction turns into Fraction
+        :param val: DecimalFraction
+        :return: Fraction
+        """
         val_str = str(val)
         n = len(val_str) - 1 - val_str.index('.')
         num = int(val * 10 ** n)
